@@ -2,6 +2,8 @@ import urllib.request
 
 
 def get_urls(url_file):
+    """ Fetches url list from a file.
+    """
     url_list = []
     with open(url_file, 'r') as f1:
         for line in f1:
@@ -11,6 +13,9 @@ def get_urls(url_file):
 
 
 def find_tag(url_list, tag):
+    """ Fetches HTML pages from a list of urls and checks if the argument tag
+    is present in the source.
+    """
     for url in url_list:
         with urllib.request.urlopen(url) as response:
             body_byte = response.read()
