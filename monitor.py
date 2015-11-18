@@ -1,9 +1,9 @@
 import urllib.request
 
 
-def get_urls():
+def get_urls(url_file):
     url_list = []
-    with open('file1', 'r') as f1:
+    with open(url_file, 'r') as f1:
         for line in f1:
             url_list.append(line)
 
@@ -17,3 +17,8 @@ def find_tag(url_list, tag):
             body_str = body_byte.decode(encoding='utf-8')
             if body_str.find(tag):
                 print('trovato')
+
+if __name__ == '__main__':
+    url_file = 'file1'
+    url_list = get_urls(url_file)
+    find_tag(url_list, '<title>')
